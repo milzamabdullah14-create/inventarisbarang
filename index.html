@@ -17,25 +17,7 @@
         #f3f7fc;
       min-height:100vh;
     }
-    .google-bar{
-      height:33px;
-      background:#eef5fd;
-      border-bottom:1px solid #d9e4f2;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 15px 0 21px;
-      font-size:12px;
-      color:#24344e;
-    }
-    .google-left{display:flex;align-items:center;gap:12px}
-    .info{
-      width:17px;height:17px;border:1.5px solid #1976d2;border-radius:50%;
-      display:inline-flex;align-items:center;justify-content:center;
-      color:#1976d2;font-size:11px;font-weight:700;
-    }
-    .google-links{display:flex;gap:38px;color:#075ecb}
-    .page{min-height:calc(100vh - 33px);display:flex;align-items:flex-start}
+    .page{min-height:100vh;display:flex;align-items:flex-start}
     .login-card{
       width:377px;
       margin:14px 0 0 17px;
@@ -127,7 +109,6 @@
     .status.show{display:block}
     @media(max-width:520px){
       .google-bar{height:32px;padding:0 12px}
-      .google-links{display:none}
       .page{justify-content:center}
       .login-card{
         width:calc(100% - 28px);
@@ -138,17 +119,6 @@
   </style>
 </head>
 <body>
-
-  <div class="google-bar">
-    <div class="google-left">
-      <span class="info">i</span>
-      <span>Aplikasi ini dibuat oleh pengguna Google Apps Script</span>
-    </div>
-    <div class="google-links">
-      <span>Laporkan penyalahgunaan</span>
-      <span>Pelajari lebih lanjut</span>
-    </div>
-  </div>
 
   <main class="page">
     <section class="login-card">
