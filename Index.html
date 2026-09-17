@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INVModern - Sistem Informasi Inventaris Bengkel</title>
+  <meta name="description" content="Sistem Informasi Inventaris Bengkel">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;width:100%;height:100%}
+    body{
+      font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+      color:#202b3e;
+      background:
+        radial-gradient(circle at 94% 12%,rgba(74,132,255,.14),transparent 24%),
+        radial-gradient(circle at 9% 94%,rgba(178,126,255,.13),transparent 23%),
+        #f3f7fc;
+      min-height:100vh;
+    }
+    .google-bar{
+      height:33px;
+      background:#eef5fd;
+      border-bottom:1px solid #d9e4f2;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 15px 0 21px;
+      font-size:12px;
+      color:#24344e;
+    }
+    .google-left{display:flex;align-items:center;gap:12px}
+    .info{
+      width:17px;height:17px;border:1.5px solid #1976d2;border-radius:50%;
+      display:inline-flex;align-items:center;justify-content:center;
+      color:#1976d2;font-size:11px;font-weight:700;
+    }
+    .google-links{display:flex;gap:38px;color:#075ecb}
+    .page{min-height:calc(100vh - 33px);display:flex;align-items:flex-start}
+    .login-card{
+      width:377px;
+      margin:14px 0 0 17px;
+      background:rgba(255,255,255,.96);
+      border-radius:20px;
+      padding:35px 35px 34px;
+      box-shadow:0 22px 35px rgba(22,36,55,.17);
+    }
+    .logo{
+      width:54px;height:54px;margin:0 auto 12px;
+      border-radius:50%;
+      background:#dceaff;
+      display:flex;align-items:center;justify-content:center;
+      color:#2b6ce9;font-size:27px;font-weight:900;
+    }
+    .logo-symbol{line-height:1;letter-spacing:-7px;transform:translateX(-3px)}
+    h1{
+      margin:0;
+      text-align:center;
+      font-size:25px;
+      line-height:1.1;
+      letter-spacing:-.6px;
+      font-weight:800;
+      color:#202b3e;
+    }
+    h1 span{color:#2468e9}
+    .subtitle{
+      margin:9px 0 29px;
+      text-align:center;
+      color:#687b98;
+      font-size:12.5px;
+    }
+    label{
+      display:block;
+      color:#53647d;
+      font-size:10.5px;
+      font-weight:800;
+      letter-spacing:.55px;
+      margin:0 0 7px;
+    }
+    .field{margin-bottom:17px}
+    .input-wrap{position:relative}
+    .input-icon{
+      position:absolute;left:12px;top:50%;transform:translateY(-50%);
+      color:#9aabc2;font-size:16px;pointer-events:none;
+    }
+    input{
+      width:100%;height:43px;
+      border:1px solid #dce4ef;
+      border-radius:10px;
+      outline:none;
+      padding:0 13px 0 39px;
+      background:#fff;
+      color:#26354b;
+      font-size:13px;
+      transition:.2s;
+    }
+    input::placeholder{color:#a4afbf}
+    input:focus{
+      border-color:#6e9ff1;
+      box-shadow:0 0 0 3px rgba(45,113,239,.10);
+    }
+    .password-toggle{
+      position:absolute;right:10px;top:50%;transform:translateY(-50%);
+      border:0;background:transparent;color:#8c9db5;cursor:pointer;font-size:14px;
+    }
+    .signin{
+      width:100%;height:41px;
+      margin-top:9px;border:0;border-radius:10px;
+      background:#2d67e7;color:#fff;
+      font-size:14px;font-weight:750;
+      cursor:pointer;
+      box-shadow:0 6px 12px rgba(45,103,231,.18);
+      transition:.2s;
+    }
+    .signin:hover{background:#2259d2;transform:translateY(-1px)}
+    .signin:active{transform:translateY(0)}
+    .status{
+      display:none;
+      margin-top:12px;
+      padding:9px 11px;
+      border-radius:8px;
+      font-size:11px;
+      line-height:1.4;
+      background:#eef5ff;
+      color:#3563a9;
+      text-align:center;
+    }
+    .status.show{display:block}
+    @media(max-width:520px){
+      .google-bar{height:32px;padding:0 12px}
+      .google-links{display:none}
+      .page{justify-content:center}
+      .login-card{
+        width:calc(100% - 28px);
+        margin:14px 14px 0;
+        padding:31px 25px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="google-bar">
+    <div class="google-left">
+      <span class="info">i</span>
+      <span>Aplikasi ini dibuat oleh pengguna Google Apps Script</span>
+    </div>
+    <div class="google-links">
+      <span>Laporkan penyalahgunaan</span>
+      <span>Pelajari lebih lanjut</span>
+    </div>
+  </div>
+
+  <main class="page">
+    <section class="login-card">
+      <div class="logo"><span class="logo-symbol">▦</span></div>
+
+      <h1>INV<span>Modern</span></h1>
+      <div class="subtitle">Sistem Informasi Inventaris Bengkel</div>
+
+      <form id="loginForm">
+        <div class="field">
+          <label for="username">USERNAME</label>
+          <div class="input-wrap">
+            <span class="input-icon">♟</span>
+            <input id="username" name="username" type="text"
+                   placeholder="Contoh: Milzam" autocomplete="username" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">PASSWORD</label>
+          <div class="input-wrap">
+            <span class="input-icon">▣</span>
+            <input id="password" name="password" type="password"
+                   placeholder="••••••••" autocomplete="current-password" required>
+            <button type="button" class="password-toggle" onclick="togglePassword()" aria-label="Tampilkan password">◉</button>
+          </div>
+        </div>
+
+        <button class="signin" id="signinButton" type="submit">Sign In</button>
+        <div class="status" id="status"></div>
+      </form>
+    </section>
+  </main>
+
+<script>
+  // Aplikasi Google Apps Script yang menjadi backend/aplikasi utama.
+  const APP_SCRIPT_URL =
+    'https://script.google.com/macros/s/AKfycbyf7UnN4692J4twI9gMsT5JOKJV-i9Pjh7JnUOqqSwOpCc-iw_VoI22JwGGIenONNnT/exec';
+
+  function togglePassword(){
+    const input = document.getElementById('password');
+    const button = document.querySelector('.password-toggle');
+    if(input.type === 'password'){
+      input.type = 'text';
+      button.textContent = '◌';
+    }else{
+      input.type = 'password';
+      button.textContent = '◉';
+    }
+  }
+
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const status = document.getElementById('status');
+    const button = document.getElementById('signinButton');
+
+    if(!username || !password) return;
+
+    /*
+      Frontend GitHub tidak mengirim password ke URL.
+      Login tetap dilakukan oleh Google Apps Script.
+      Untuk autentikasi langsung dari GitHub (tanpa berpindah halaman),
+      Code.gs perlu menyediakan endpoint doGet/doPost/API login.
+    */
+    button.disabled = true;
+    button.textContent = 'Menghubungkan...';
+    status.textContent = 'Membuka sistem inventaris...';
+    status.classList.add('show');
+
+    setTimeout(function(){
+      window.location.href = APP_SCRIPT_URL;
+    }, 300);
+  });
+</script>
+</body>
+</html>
